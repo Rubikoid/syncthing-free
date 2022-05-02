@@ -63,6 +63,7 @@ func TestDefaultValues(t *testing.T) {
 			NATLeaseM:               60,
 			NATRenewalM:             30,
 			NATTimeoutS:             10,
+			RestartOnWakeup:         true,
 			AutoUpgradeIntervalH:    0,
 			KeepTemporariesH:        24,
 			CacheIgnoredFiles:       false,
