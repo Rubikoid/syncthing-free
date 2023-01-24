@@ -710,18 +710,6 @@ func (m *OptionsConfiguration) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 		i--
 		dAtA[i] = 0xc8
 	}
-	if m.RestartOnWakeup {
-		i--
-		if m.RestartOnWakeup {
-			dAtA[i] = 1
-		} else {
-			dAtA[i] = 0
-		}
-		i--
-		dAtA[i] = 0x1
-		i--
-		dAtA[i] = 0xc0
-	}
 	if m.URInitialDelayS != 0 {
 		i = encodeVarintOptionsconfiguration(dAtA, i, uint64(m.URInitialDelayS))
 		i--
@@ -986,9 +974,6 @@ func (m *OptionsConfiguration) ProtoSize() (n int) {
 	}
 	if m.URInitialDelayS != 0 {
 		n += 2 + sovOptionsconfiguration(uint64(m.URInitialDelayS))
-	}
-	if m.RestartOnWakeup {
-		n += 3
 	}
 	if m.AutoUpgradeIntervalH != 0 {
 		n += 2 + sovOptionsconfiguration(uint64(m.AutoUpgradeIntervalH))
@@ -1642,26 +1627,6 @@ func (m *OptionsConfiguration) Unmarshal(dAtA []byte) error {
 					break
 				}
 			}
-		case 24:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field RestartOnWakeup", wireType)
-			}
-			var v int
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowOptionsconfiguration
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				v |= int(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			m.RestartOnWakeup = bool(v != 0)
 		case 25:
 			if wireType != 0 {
 				return fmt.Errorf("proto: wrong wireType = %d for field AutoUpgradeIntervalH", wireType)
